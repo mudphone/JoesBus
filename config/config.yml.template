@@ -1,0 +1,10 @@
+development: &non_production_settings
+  :hea:
+    :api_key: "[Enter TheBus HEA API Key Here]"
+
+test:
+  <<: *non_production_settings
+
+production:
+  :hei:
+    :api_key: "[Enter TheBus HEA API Key Here]"
