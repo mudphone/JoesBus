@@ -16,7 +16,7 @@ $ irb -r './client.rb'
 
 > client.arrivals_response 123
 using api key: #####
-url is: http://api.thebus.org/arrivals/?key=1234&stop=123
+url is: http://api.thebus.org/arrivals/?key=#####&stop=123
  => ... TBD ...
 ````
 
