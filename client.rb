@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby -w
 require 'net/https'
 require 'yaml'
+require 'nokogiri'
 
 module JoesBus
   HEA_API_URL = "api.thebus.org"
@@ -55,12 +56,16 @@ module JoesBus
         msg: response.msg }
     end
 
-    def arrivals_response stop_id
-      response_for HEA_REQUEST_TYPE_ARRIVALS, "&stop=#{stop_id}"
+    def arrivals_at_stop stop_id
+      response = response_for HEA_REQUEST_TYPE_ARRIVALS, "&stop=#{stop_id}"
+      doc = Nokogiri.XML response[:body]
+      doc.xpath("//arrival")
     end
 
-    def vehicle_response vehicle_num
-      response_for HEA_REQUEST_TYPE_VEHICLE, "&num=#{vehicle_num}"
+    def vehicles_with_num vehicle_num
+      response = response_for HEA_REQUEST_TYPE_VEHICLE, "&num=#{vehicle_num}"
+      doc = Nokogiri.XML response[:body]
+      doc.xpath("//vehicle")
     end
 
   end

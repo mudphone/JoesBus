@@ -2,6 +2,14 @@
 
 This is a tiny Ruby library for driving TheBus' public API.  To find out more, check out the [official HEA API docs](http://hea.thebus.org/api_info.asp "HEA API Page").
 
+## Requirements
+
+This libarary requires the Ruby Nokogiri Gem to parse the XML that comes back from TheBus' HEA API. You can install it like so:
+````bash
+$ gem install nokogiri
+````
+This library requires Ruby version >= 1.9.
+
 ## Do the following:
 * Sign up for an API key at [http://api.thebus.org](http://api.thebus.org)
 * Copy config/config.yml.template to config/config.yml
