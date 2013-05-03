@@ -5,6 +5,7 @@ require 'yaml'
 module JoesBus
   HEA_API_URL = "api.thebus.org"
   HEA_REQUEST_TYPE_ARRIVALS = "arrivals"
+  HEA_REQUEST_TYPE_VEHICLE  = "vehicle"
 
   CLIENT_ENV = "development"
   APP_ROOT = File.expand_path(File.dirname(__FILE__))
@@ -44,9 +45,9 @@ module JoesBus
       end
     end
 
-    def next_buses_response stop_id
+    def response_for request_type, params
       puts "using api key: #{@config[:api_key]}"
-      url = self.class.api_url @config[:api_key], HEA_REQUEST_TYPE_ARRIVALS, "&stop=#{stop_id}"
+      url = self.class.api_url @config[:api_key], request_type, params
       puts "url is: #{url}"
       response = self.class.response_for url
       { body: response.body,
@@ -54,6 +55,13 @@ module JoesBus
         msg: response.msg }
     end
 
+    def arrivals_response stop_id
+      response_for HEA_REQUEST_TYPE_ARRIVALS, "&stop=#{stop_id}"
+    end
+
+    def vehicle_response vehicle_num
+      response_for HEA_REQUEST_TYPE_VEHICLE, "&num=#{vehicle_num}"
+    end
 
   end
 end
