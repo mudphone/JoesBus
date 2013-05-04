@@ -22,10 +22,16 @@ $ irb -r './client.rb'
 > client = JoesBus::Client.new
  => #<JoesBus::Client:0x007f86ad07f770 @user_config={:hea=>{:api_key=>"####"}}, @config={:api_key=>"#####"}>
 
-> client.arrivals_response 123
+> client.arrivals_at_stop 123
 using api key: #####
 url is: http://api.thebus.org/arrivals/?key=#####&stop=123
- => ... TBD ...
+ => [#<Nokogiri::XML::Element:0x3ff41d8996e8 name="arrival"
+
+> a.size
+ => 25
+ 
+> a.first
+ => #<Nokogiri::XML::Element:0x3ff41d8996e8 name="arrival"...
 ````
 
 More to come.
