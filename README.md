@@ -22,7 +22,13 @@ Grab the static data, describing the bus system:
 Load this data and use it:
 ````bash
 $ cd JoesBus
-$ source = GTFS::Source.build("./data/google_transit.zip")
+$ irb
+> require 'gtfs'
+> source = GTFS::Source.build("./data/google_transit.zip")
+
+
+# Do stuff with source... see the GTFS project on GitHub.
+
 ````
 
 ### REAL-TIME BUS SETUP
