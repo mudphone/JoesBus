@@ -6,8 +6,9 @@ This library requires Ruby version >= 1.9.
 
 ### STATIC BUS SETUP
 
-#### OSX Install of Protobuf and Ruby Protobuf
-Installting https://github.com/nerdEd/gtfs via Ruby Gems:
+#### OSX Install the GTFS Gem
+(GTFS is the Google Transit Feed Spcification.)
+Install https://github.com/nerdEd/gtfs via Ruby Gems.
 
 ````bash
 $ gem install gtfs
