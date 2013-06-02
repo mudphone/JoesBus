@@ -71,6 +71,7 @@ API end points for Oahu Transit Services, Inc. - Google Transit Feed Specificati
 * http://webapps.thebus.org/transitdata/production/tripupdates/
 * http://webapps.thebus.org/transitdata/production/servicealerts/
 
+Substitute the above URLs for the `url` variable below. These end point URLs determine which type of data is returned to you.
 
 
 ## Example Usage:
@@ -89,7 +90,7 @@ $ irb
  => "http://webapps.thebus.org/transitdata/production/vehloc/"
 
 1.9.3-p362 :009 > gtfs_bytes = open(url).read
- => "\n\r\n\x031...
+ => "\n\r\n\x031..."
 
 > feed_message = Transit_Realtime::FeedMessage.new.parse_from_string(gtfs_bytes)
 > msg_hash = feed_message.to_hash
